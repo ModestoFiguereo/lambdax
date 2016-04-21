@@ -1,0 +1,39 @@
+{
+  "name": "negatejs",
+  "version": "0.0.1",
+  "description": "`negatejs` is an small module that allows you to build lambda expression that negates the result of another expression.",
+  "main": "negate.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ModestoFiguereo/negatejs.git"
+  },
+  "keywords": [
+    "negator",
+    "negate",
+    "not",
+    "negative",
+    "javascript"
+  ],
+  "author": "Modesto Figuereo Fernandez <figuereo.fernandez.modesto@gmail.com> (http://www.modestofiguereo.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ModestoFiguereo/negatejs/issues"
+  },
+  "homepage": "https://github.com/ModestoFiguereo/negatejs#readme",
+  "devDependencies": {
+    "del": "^2.2.0",
+    "faucet": "0.0.1",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^2.0.0",
+    "gulp-minify": "0.0.10",
+    "gulp-shell": "^0.5.2",
+    "run-sequence": "^1.1.5",
+    "tape": "^4.5.1"
+  }
+}
