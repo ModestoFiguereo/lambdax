@@ -9,7 +9,7 @@
   "scripts": {
     "test": "gulp test",
     "preversion": "gulp",
-    "postversion": "git push && git push --tags && git checkout release && git merge master && git push && git checkout master"
+    "postversion": "git push && git push --tags && git checkout release && git merge master && git push && npm publish && git checkout master"
   },
   "repository": {
     "type": "git",
