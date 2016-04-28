@@ -7,9 +7,27 @@
     global[name] = definition();
   }
 })('negator', this, function () {
+  function partial(context, fn) {
+    if (!arguments.length) {
+      return createLambdaBuilder(partial);
+    }
+
+    var args = [].slice.apply(arguments, [2]);
+    if (!context || typeof context === 'function') {
+      args.unshift(fn);
+      fn = context;
+    }
+
+    return function () {
+      var moreArgs = [].slice.apply(arguments, [0]);
+
+      return fn.apply(context || {}, args.concat(moreArgs));
+    }
+  }
+
   function negator(context, fn) {
     if (!arguments.length) {
-      return Object.create(negatorBuilderProto);
+      return createLambdaBuilder(negator);
     }
 
     var args = [].slice.apply(arguments, [2]);
@@ -25,7 +43,19 @@
     }
   }
 
-  var negatorBuilderProto = {
+
+  function createLambdaBuilder(factory) {
+    return Object.create(lambdaBuilderProto, {
+      build: {
+        value: function() {
+          var args = [this.__context, this.__expression].concat(this.__arguments);
+          return factory.apply({}, args);
+        }
+      }
+    });
+  }
+
+  var lambdaBuilderProto = {
     __arguments: [],
     __context: null,
     __expression: null,
@@ -42,10 +72,12 @@
       return this;
     },
     build: function build() {
-      var args = [this.__context, this.__expression].concat(this.__arguments);
-      return negator.apply({}, args);
+      throw new Error('build() method not implemented!');
     },
   };
 
-  return negator;
+  return  {
+    partial: partial,
+    negator: negator
+  };
 });
