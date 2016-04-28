@@ -8,7 +8,6 @@ var del = require('del');
 gulp.task('default', function (done) {
   sequence(
   'clean',
-  'lint',
   'test',
   'build',
   done);
@@ -23,13 +22,13 @@ gulp.task('lint', function () {
     .pipe(eslint.failOnError());
 });
 
-gulp.task('test', shell.task([
+gulp.task('test', ['lint'], shell.task([
   'tape test/**/*.test.js | faucet'
 ]));
 
 gulp.task('build', function () {
   return gulp
-    .src('negator.js')
+    .src('lambda.js')
     .pipe(minify({
       ext: '.min.js'
     }))
