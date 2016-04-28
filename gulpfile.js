@@ -16,7 +16,7 @@ gulp.task('default', function (done) {
 gulp.task('clean', function () { del('dist/'); });
 
 gulp.task('lint', function () {
-  return gulp.src('**/*.js')
+  return gulp.src(['lambdax.js', 'test/*.test.js', '!dist/**/*'])
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failOnError());
