@@ -28,7 +28,7 @@ gulp.task('test', ['lint'], shell.task([
 
 gulp.task('build', function () {
   return gulp
-    .src('lambda.js')
+    .src('lambdax.js')
     .pipe(minify({
       ext: '.min.js'
     }))
