@@ -1,8 +1,8 @@
 {
-  "name": "negatejs",
+  "name": "lambdax",
   "version": "0.0.1",
-  "description": "`negatejs` is an small module that allows you to build lambda expression that negates the result of another expression.",
-  "main": "negate.js",
+  "description": "`lambdax` is an small module that allows you to implement partial application and build lambda expressions.",
+  "main": "lambdax.js",
   "directories": {
     "test": "test"
   },
@@ -18,6 +18,8 @@
     "negate",
     "not",
     "negative",
+    "lambda",
+    "partial application",
     "javascript"
   ],
   "author": "Modesto Figuereo Fernandez <figuereo.fernandez.modesto@gmail.com> (http://www.modestofiguereo.com)",

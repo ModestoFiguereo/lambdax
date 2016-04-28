@@ -6,7 +6,7 @@
   } else {
     global[name] = definition();
   }
-})('negator', this, function () {
+})('lambdax', this, function () {
   function partial(context, fn) {
     if (!arguments.length) {
       return createLambdaBuilder(partial);
@@ -25,7 +25,7 @@
     }
   }
 
-  function negator(context, fn) {
+  function negate(context, fn) {
     if (!arguments.length) {
       return createLambdaBuilder(negator);
     }
@@ -78,6 +78,6 @@
 
   return  {
     partial: partial,
-    negator: negator
+    negate: negate
   };
 });
