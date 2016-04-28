@@ -104,18 +104,16 @@ isAgeNotInRange(maxAge);
 - negate() use as a builder:
 
 ```js
-  var isNotAgeInRange = negate()
-    .expression(function (minAge, maxAge) {
-      return this.age >= minAge && this.age <= maxAge;
-    })
-    .context(john)
-    .argument(18)
-    .argument(30)
-    .build();
+var isNotAgeInRange = negate()
+  .expression(function (minAge, maxAge) {
+    return this.age >= minAge && this.age <= maxAge;
+  })
+  .context(john)
+  .argument(18)
+  .argument(30)
+  .build();
 
-  isNotAgeInRange();
-});
-
+isNotAgeInRange();
 ```
 
 **Note:** see test folder for more examples.
