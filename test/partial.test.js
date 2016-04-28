@@ -7,8 +7,7 @@ var tape = require('tape'),
     test = afterEach(test, function (assert) {
       assert.end();
     })
-    negator = require('../lambda').negator;
-    partial = require('../lambda').partial;
+    partial = require('../lambdax').partial;
 
 test('partial() simple use passing params', function (assert) {
   var sumPlus15 = partial(function (a, b, c) { return a + b + c; }, 15);

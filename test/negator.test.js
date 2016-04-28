@@ -7,8 +7,7 @@ var tape = require('tape'),
     test = afterEach(test, function (assert) {
       assert.end();
     })
-    negator = require('../lambda').negator;
-    partial = require('../lambda').partial;
+    negator = require('../lambdax').negator;
 
 test('negator() simple use', function (assert) {
   var f = negator(function () { return true });
