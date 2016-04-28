@@ -1,0 +1,32 @@
+{
+  "name": "lambdax",
+  "main": "/dist/lambdax.min.js",
+  "version": "1.0.1",
+  "homepage": "https://github.com/ModestoFiguereo/lambdax/tree/release",
+  "authors": [
+    "Modesto Figuereo Fernandez <figuereo.fernandez.modesto@gmail.com>"
+  ],
+  "description": "`lambdax` is an small module that allows you to implement partial application and build lambda expressions.",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "negator",
+    "negate",
+    "not",
+    "negative",
+    "lambda",
+    "partial application",
+    "javascript"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
