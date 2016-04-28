@@ -7,37 +7,37 @@ var tape = require('tape'),
     test = afterEach(test, function (assert) {
       assert.end();
     })
-    negator = require('../lambdax').negator;
+    negate = require('../lambdax').negate;
 
-test('negator() simple use', function (assert) {
-  var f = negator(function () { return true });
-  var t = negator(function () { return false });
+test('negate() simple use', function (assert) {
+  var f = negate(function () { return true });
+  var t = negate(function () { return false });
 
   assert.false(f(), 'f() should return false');
   assert.true(t(), 'v() should return true');
   assert.end();
 });
 
-test('negator() simple use passing arguments', function (assert) {
+test('negate() simple use passing arguments', function (assert) {
   function isUnderAge(age) { return age < 18 }
 
-  var isNotUnderAge = negator(isUnderAge, 25);
+  var isNotUnderAge = negate(isUnderAge, 25);
 
   assert.true(isNotUnderAge(), 'isNotUnderAge() should return true');
   assert.end();
 });
 
-test('negator() simple use passing context', function (assert) {
-  var isNotUnderAge = negator(john, function () { return this.isUnderAge(); });
+test('negate() simple use passing context', function (assert) {
+  var isNotUnderAge = negate(john, function () { return this.isUnderAge(); });
 
   assert.false(isNotUnderAge(), 'isNotUnderAge() should return false');
   assert.end();
 });
 
-test('negator() simple use passing context and arguments', function (assert) {
+test('negate() simple use passing context and arguments', function (assert) {
   var minAge = 18;
   var maxAge = 30;
-  var isNotAgeInRange = negator(
+  var isAgeNotInRange = negate(
     john,
     function (minAge, maxAge) {
       return this.age >= minAge && this.age <= maxAge;
@@ -47,12 +47,12 @@ test('negator() simple use passing context and arguments', function (assert) {
     // but we didn't just to demonstrate that can pass it latter
   );
 
-  assert.true(isNotAgeInRange(maxAge), 'isAgeInRange() should return true');
+  assert.true(isAgeNotInRange(maxAge), 'isAgeInRange() should return true');
   assert.end();
 });
 
-test('negator() use as a builder', function (assert) {
-  var isNotAgeInRange = negator()
+test('negate() use as a builder', function (assert) {
+  var isNotAgeInRange = negate()
     .expression(function (minAge, maxAge) {
       return this.age >= minAge && this.age <= maxAge;
     })
@@ -65,10 +65,10 @@ test('negator() use as a builder', function (assert) {
   assert.end();
 });
 
-test('negator() use as a builder with a collection of people', function (assert) {
+test('negate() use as a builder with a collection of people', function (assert) {
   var minAge = 18;
   var maxAge = 30;
-  var isNotAgeInRangeBuilder = negator()
+  var isNotAgeInRangeBuilder = negate()
     .expression(function (minAge, maxAge) {
       return this.age >= minAge && this.age <= maxAge;
     })

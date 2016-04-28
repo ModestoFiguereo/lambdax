@@ -19,8 +19,6 @@ test('partial() simple use passing params', function (assert) {
 });
 
 test('partial() simple use passing context and arguments', function (assert) {
-  var minAge = 18;
-  var maxAge = 30;
   var getJohnColeguesNames = partial(
     john,
     function (people) {
@@ -51,7 +49,6 @@ test('partial() use as a builder', function (assert) {
 
         return backendDevelopers;
       }, []);
-      return this.age >= minAge && this.age <= maxAge;
     })
     .context(people)
     .build();
