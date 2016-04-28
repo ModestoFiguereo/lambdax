@@ -27,7 +27,7 @@
 
   function negate(context, fn) {
     if (!arguments.length) {
-      return createLambdaBuilder(negator);
+      return createLambdaBuilder(negate);
     }
 
     var args = [].slice.apply(arguments, [2]);
