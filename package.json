@@ -8,8 +8,7 @@
   },
   "scripts": {
     "test": "gulp test",
-    "preversion": "npm test",
-    "version": "gulp",
+    "preversion": "gulp",
     "postversion": "git push && git push --tags && git checkout release && git merge master && git push && git checkout master"
   },
   "repository": {
