@@ -1,6 +1,6 @@
 {
   "name": "lambdax",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "`lambdax` is an small module that allows you to implement partial application and build lambda expressions.",
   "main": "lambdax.js",
   "directories": {
